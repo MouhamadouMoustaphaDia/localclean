@@ -1,0 +1,7 @@
+Nom d'utilisateur: localclean
+Mot de passe: localClean2022
+
+mongodb+srv://localclean:<password>@cluster0.csj51.mongodb.net/test
+
+
+https://drive.google.com/file/d/10w8wQz6jQdU-iFnBDl99-EtgpaZGM-eH/view?usp=sharing
