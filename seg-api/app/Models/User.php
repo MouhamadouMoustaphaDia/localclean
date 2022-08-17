@@ -7,22 +7,21 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
-
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Tymon\JWTAuth\Contracts\JWTSubject;
 
 /**
  * Class User
  *
  * @property int $id_user
- * @property string $name
+ * @property string|null $name
  * @property string $email
- * @property int $password
- * @property int $nbr_signalement
+ * @property string $password
+ * @property int|null $nbr_signalement
  * @property string $profil
- * @property Carbon $create_date
+ * @property Carbon|null $create_date
+ *
+ * @property Collection|Evenement[] $evenements
  *
  * @package App\Models
  */
@@ -33,7 +32,6 @@ class User extends Model
 	public $timestamps = false;
 
 	protected $casts = [
-		'password' => 'int',
 		'nbr_signalement' => 'int'
 	];
 
@@ -41,6 +39,9 @@ class User extends Model
 		'create_date'
 	];
 
+	protected $hidden = [
+		'password'
+	];
 
 	protected $fillable = [
 		'name',
@@ -51,18 +52,7 @@ class User extends Model
 		'create_date'
 	];
 
-    use Notifiable;
-
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
-
-    /**
+     /**
      * Get the identifier that will be stored in the subject claim of the JWT.
      *
      * @return mixed
@@ -81,4 +71,9 @@ class User extends Model
     {
         return [];
     }
+
+	public function evenements()
+	{
+		return $this->hasMany(Evenement::class, 'id_user');
+	}
 }

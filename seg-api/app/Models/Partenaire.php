@@ -13,8 +13,8 @@ use Illuminate\Database\Eloquent\Model;
  * 
  * @property int $id_partenaire
  * @property string $name
- * @property string $adresse
- * @property string $contact
+ * @property string|null $adresse
+ * @property string|null $contact
  *
  * @package App\Models
  */
