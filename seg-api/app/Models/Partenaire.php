@@ -6,23 +6,27 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Partenaire
  * 
- * @property int $id_partenaire
+ * @property int $id
  * @property string $name
- * @property string|null $adresse
- * @property string|null $contact
+ * @property string $adresse
+ * @property string $contact
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
+ * @property string $deleted_at
  *
  * @package App\Models
  */
 class Partenaire extends Model
 {
+	use SoftDeletes;
 	protected $table = 'partenaires';
-	protected $primaryKey = 'id_partenaire';
-	public $timestamps = false;
 
 	protected $fillable = [
 		'name',
