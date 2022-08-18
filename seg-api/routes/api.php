@@ -14,11 +14,20 @@ use App\Http\Controllers\UserController;
 |
 */
 
-//Route::post('register', 'UserController@register');
-//sur laravel 8, la syntaxe a changé
-/*
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    return $request->user();
+});
+
+
+
+
 Route::post('login', [UserController::class, 'login']);
+
+ //Grâce à ce middleware on ne ppourra pas acceder aux routes sans le token
+Route::group(['middleware' => 'auth.jwt'], function () {
+//authentification
 Route::post('register', [UserController::class, 'register']);
-Route::get('show', [UserController::class, 'show']);
-Route::get('addPartenaire', [UserController::class, 'addPartenaire']);
-*/
+Route::get('logout', [UserController::class, 'logout']);
+Route::get('user', [UserController::class, 'user']);
+
+});

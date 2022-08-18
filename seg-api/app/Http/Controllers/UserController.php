@@ -2,48 +2,63 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\RegisterAuthRequest;
-use App\Models\Evenement;
+//use App\Http\Requests\RegisterAuthRequest;
 use App\Models\User;
-use App\Models\Partenaire;
 use Illuminate\Http\Request;
 use JWTAuth;
-use PhpParser\Builder\Param;
 use Tymon\JWTAuth\Exceptions\JWTException;
+use Illuminate\Support\Facades\Hash;
+use App\Models\UserBoulangery;
+use App\Models\Boulangery;
+use Illuminate\Support\Facades\DB;
 
-class UserController extends Controller
+class userController extends Controller
 {
     public $loginAfterSignUp = true;
-
-
-    // Insert on table user
-    public function register(RegisterAuthRequest $request)
+    
+    public function register(Request $request)
     {
-        $user = new User();
+        try{  //ce Try catch permet de faire un rollback au cas où la transaction n'a pas aboutis
+            DB::beginTransaction();
+
+            $user = User::create([
+            'name' => $request->get('name'),
+            'email' => $request->get('email'),
+            'password' => Hash::make($request->get('password')),
+            'profil' => $request->get('profil'),
+            'nbr_signalement' => $request->get('nbr_signalement'),
+             ]);  
+         
+             //si tu veux tu peux utiliser cette requête d'insertion, c'est quasiment la mm chose
+      /*  $user = new User();
         $user->name = $request->name;
-        $user->profil = $request->profil;
-        $user->nbr_signalement =$request->nbr_signalement;
-        $user->create_date = $request->create_date;
         $user->email = $request->email;
         $user->password = bcrypt($request->password);
-
+        $user->profil = $request->profil;
+        $user->nbr_signalement = $request->nbr_signalement;
         $user->save();
+        */
+        
 
-        if ($this->loginAfterSignUp) {
-            return $this->login($request);
-        }
+        $token = JWTAuth::fromUser($user);
+
+        DB::commit();
+
+         return response()->json([
+            'success' => true,
+            'user' => $user,
+            'token' => $token
+        ]);
+        
+      }catch (\Exception $e){
 
         return response()->json([
-            'success' => true,
-            'data' => $user
-        ], 200);
-    }
+            'success' => false,
+        ]);
 
-
-    public function show()
-    {
-        $partenaire = Partenaire::find(1) ;
-        return  $partenaire;
+        DB::rollback();
+       }
+       
     }
 
 
@@ -52,71 +67,74 @@ class UserController extends Controller
     {
         $input = $request->only('email', 'password');
         $jwt_token = null;
-
+ 
         if (!$jwt_token = JWTAuth::attempt($input)) {
             return response()->json([
                 'success' => false,
-                'message' => 'Invalid Email or Password',
+                'message' => 'Invalid email or Password',
             ], 401);
         }
-
-        return response()->json([
-            'success' => true,
-            'token' => $jwt_token,
-        ]);
+       
+         
+            return response()->json([
+                'success' => true,
+                'token' => $jwt_token,
+            ]);
+                      
     }
+
 
     public function logout(Request $request)
     {
         $this->validate($request, [
             'token' => 'required'
         ]);
-
+ 
         try {
             JWTAuth::invalidate($request->token);
-
+ 
             return response()->json([
                 'success' => true,
-                'message' => 'User logged out successfully'
+                'message' => 'Utilisateur deconnecte avec succes'
             ]);
         } catch (JWTException $exception) {
             return response()->json([
                 'success' => false,
-                'message' => 'Sorry, the user cannot be logged out'
+                'message' => 'Sorry, l utilisateur ne peut pas etre deconnecte'
             ], 500);
         }
     }
 
-    public function getAuthUser(Request $request)
+
+
+
+    public function getAuthUser()
     {
-        $this->validate($request, [
-            'token' => 'required'
-        ]);
+        try {
 
-        $user = JWTAuth::authenticate($request->token);
+            if (!$user = JWTAuth::parseToken()->authenticate()) {
+                return response()->json(['utilisateur exit pas'], 404);
+            }
 
-        return response()->json(['user' => $user]);
+        } catch (Tymon\JWTAuth\Exceptions\TokenExpiredException $e) {
+
+            return response()->json(['token expiré'], $e->getStatusCode());
+
+        } catch (Tymon\JWTAuth\Exceptions\TokenInvalidException $e) {
+
+            return response()->json(['token invalide'], $e->getStatusCode());
+
+        } catch (Tymon\JWTAuth\Exceptions\JWTException $e) {
+
+            return response()->json(['token absent'], $e->getStatusCode());
+
+        }
+
+        return response()->json(compact('user'));
     }
 
-    // Insert on table partenaire
-    public function addPartenaire(Request $request)
-    {
-        $partenaire = new Partenaire();
-        $partenaire->name = $request->name;
-        $partenaire->adresse = $request->adresse;
-        $partenaire->contact = $request->contact;
-        $partenaire->save();
-    }
 
 
-    public function addEvenement(Request $request)
-    {
-        $evenement = new Evenement();
-        $evenement->description = $request->description;
-        $evenement->etat = $request->etat;
-        $evenement->longitude = $request->longitude;
-        $evenement->lattitude = $request->lattitude;
-        $evenement->create_date = $request->create_date;
-        $evenement->save();
-    }
+
+
 }

@@ -6,36 +6,35 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Photo
  * 
- * @property int $id_photo
- * @property string|null $name
- * @property int $id_evenement
+ * @property int $id
+ * @property string $image
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
+ * @property string $deleted_at
  * 
- * @property Evenement $evenement
+ * @property Collection|Evenement[] $evenements
  *
  * @package App\Models
  */
 class Photo extends Model
 {
+	use SoftDeletes;
 	protected $table = 'photos';
-	protected $primaryKey = 'id_photo';
-	public $timestamps = false;
-
-	protected $casts = [
-		'id_evenement' => 'int'
-	];
 
 	protected $fillable = [
-		'name',
-		'id_evenement'
+		'image'
 	];
 
-	public function evenement()
+	public function evenements()
 	{
-		return $this->belongsTo(Evenement::class, 'id_evenement');
+		return $this->hasMany(Evenement::class);
 	}
 }

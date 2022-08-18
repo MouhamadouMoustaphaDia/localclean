@@ -7,56 +7,57 @@
 namespace App\Models;
 
 use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Evenement
  * 
- * @property int $id_evenement
- * @property string|null $description
- * @property string|null $longitude
- * @property string|null $lattitude
- * @property bool $etat
- * @property Carbon|null $create_date
- * @property int $id_user
+ * @property int $id
+ * @property string $description
+ * @property int $etat
+ * @property float $longitude
+ * @property float $lattitude
+ * @property int $user_id
+ * @property int $photo_id
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
+ * @property string $deleted_at
  * 
  * @property User $user
- * @property Collection|Photo[] $photos
+ * @property Photo $photo
  *
  * @package App\Models
  */
 class Evenement extends Model
 {
+	use SoftDeletes;
 	protected $table = 'evenements';
-	protected $primaryKey = 'id_evenement';
-	public $timestamps = false;
 
 	protected $casts = [
-		'etat' => 'bool',
-		'id_user' => 'int'
-	];
-
-	protected $dates = [
-		'create_date'
+		'etat' => 'int',
+		'longitude' => 'float',
+		'lattitude' => 'float',
+		'user_id' => 'int',
+		'photo_id' => 'int'
 	];
 
 	protected $fillable = [
 		'description',
+		'etat',
 		'longitude',
 		'lattitude',
-		'etat',
-		'create_date',
-		'id_user'
+		'user_id',
+		'photo_id'
 	];
 
 	public function user()
 	{
-		return $this->belongsTo(User::class, 'id_user');
+		return $this->belongsTo(User::class);
 	}
 
-	public function photos()
+	public function photo()
 	{
-		return $this->hasMany(Photo::class, 'id_evenement');
+		return $this->belongsTo(Photo::class);
 	}
 }
