@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : jeu. 18 août 2022 à 16:05
+-- Généré le : jeu. 18 août 2022 à 23:01
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -31,15 +31,24 @@ DROP TABLE IF EXISTS `evenements`;
 CREATE TABLE IF NOT EXISTS `evenements` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `description` varchar(255) NOT NULL,
-  `etat` tinyint(1) NOT NULL,
+  `etat` int(1) DEFAULT NULL,
   `lieu` varchar(255) NOT NULL,
   `image` varchar(255) NOT NULL,
-  `created_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted_at` timestamp NULL DEFAULT NULL,
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `evenements`
+--
+
+INSERT INTO `evenements` (`id`, `description`, `etat`, `lieu`, `image`, `created_at`, `updated_at`, `deleted_at`, `user_id`) VALUES
+(3, 'jjjjj', 0, 'test', 'test', '2022-08-18 16:44:13', '2022-08-18 16:44:13', NULL, 4),
+(4, 'jjjjj', 0, 'test,kk', 'testk', '2022-08-18 16:46:50', '2022-08-18 16:46:50', NULL, 4);
 
 -- --------------------------------------------------------
 
@@ -70,14 +79,15 @@ CREATE TABLE IF NOT EXISTS `profils` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(25) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `profils`
 --
 
 INSERT INTO `profils` (`id`, `name`) VALUES
-(1, 'admin');
+(1, 'admin'),
+(2, 'test');
 
 -- --------------------------------------------------------
 
@@ -94,11 +104,18 @@ CREATE TABLE IF NOT EXISTS `users` (
   `nbr_signalement` int(11) DEFAULT NULL,
   `created_at` timestamp NOT NULL,
   `updated_at` timestamp NOT NULL,
-  `deleted_at` timestamp NOT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
   `profil_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `profil_id` (`profil_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`id`, `name`, `email`, `password`, `nbr_signalement`, `created_at`, `updated_at`, `deleted_at`, `profil_id`) VALUES
+(4, 'toto', 'tota@toto.com', '$2y$10$H/yKH7LM78jzGSWEpAfl4eCGFagmrDamTeN5wvHJOIlkUWefFiZJe', 0, '2022-08-18 14:21:24', '2022-08-18 14:21:24', NULL, 1);
 
 --
 -- Contraintes pour les tables déchargées

@@ -12,16 +12,17 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Evenement
- * 
+ *
  * @property int $id
  * @property string $description
- * @property bool $etat
+ * @property int|null $etat
  * @property string $lieu
  * @property string $image
  * @property Carbon $created_at
- * @property string $deleted_at
+ * @property Carbon $updated_at
+ * @property string|null $deleted_at
  * @property int $user_id
- * 
+ *
  * @property User $user
  *
  * @package App\Models
@@ -30,10 +31,9 @@ class Evenement extends Model
 {
 	use SoftDeletes;
 	protected $table = 'evenements';
-	public $timestamps = false;
 
 	protected $casts = [
-		'etat' => 'bool',
+		'etat' => 'int',
 		'user_id' => 'int'
 	];
 

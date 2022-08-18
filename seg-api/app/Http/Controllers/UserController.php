@@ -46,32 +46,24 @@ class userController extends Controller
 
     public function addEvenement(Request $request)
     {
-        try{  //ce Try catch permet de faire un rollback au cas où la transaction n'a pas abouti
-            DB::beginTransaction();
+        $evenement = new Evenement();
+        $evenement->description = $request->description;
+        $evenement->etat = $request->etat;
+        $evenement->lieu =$request->lieu;
+        $evenement->image = $request->image;
+        $evenement->user_id = $request->user_id;
 
-            $evenement = Evenement::create([
-                'description' => $request->get('description'),
-                'etat' => $request->get('etat'),
-                'lieu' => $request->get('lieu'),
-                'image' => $request->get('image'),
-                'user_id' => $request->get('user_id'),//Foreignekey
-             ]);
+        if($evenement->save()){
+            return response()->json([
+                'success' => true,
+                'evenement' => $evenement
+            ]);
+        }else{
+            false;
+        }
 
-        DB::commit();
 
-         return response()->json([
-            'success' => true,
-            'evenement' => $evenement
-        ]);
 
-      }catch (\Exception $e){
-
-        return response()->json([
-            'success' => false,
-        ]);
-
-        DB::rollback();
-       }
 
     }
 
@@ -90,7 +82,6 @@ class userController extends Controller
             'name' => $request->get('name'),
             'email' => $request->get('email'),
             'password' => Hash::make($request->get('password')),
-            'image' => $request->get('image'),
             'nbr_signalement' => $request->get('nbr_signalement'),
             'profil_id' => $request->get('profil_id'),//Foreignekey
              ]);
@@ -193,8 +184,71 @@ class userController extends Controller
         return response()->json(compact('user'));
     }
 
+    public function updateUser(Request $request, $id)
+    {
+        $user = User::find($id);
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->nbr_signalement = $request->input('nbr_signalement');
+        $user->profil_id = $request->input('profil_id');
+
+        if($user->update()){
+            return response()->json([
+                'success' => true,
+                'user' => $user
+            ]);
+        }else{
+            false;
+        }
+        //return redirect()->back()->with('status','Student Updated Successfully');
+    }
+
+    public function deleteUser($id)
+    {
+        $user = User::find($id);
+
+        if($user->delete()){
+            return response()->json([
+                'success' => true
+            ]);
+        }else{
+            false;
+        }
 
 
+    }
 
 
+    public function deleteEvenement($id)
+    {
+        $evenement = Evenement::find($id);
+
+        if($evenement->delete()){
+            return response()->json([
+                'success' => true
+            ]);
+        }else{
+            false;
+        }
+    }
+
+
+    public function updateEvenement(Request $request, $id)
+    {
+        $evenement = Evenement::find($id);
+        $evenement->description = $request->input('description');
+        $evenement->lieu = $request->input('lieu');
+        $evenement->etat = $request->input('etat');
+        $evenement->image = $request->input('image');
+        $evenement->user_id = $request->input('user_id');
+        if($evenement->update()){
+            return response()->json([
+                'success' => true,
+                'evenement' => $evenement
+            ]);
+        }else{
+            false;
+        }
+
+    }
 }

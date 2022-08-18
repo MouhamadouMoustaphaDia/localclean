@@ -33,7 +33,7 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
  *
  * @package App\Models
  */
-class User extends Model
+class User extends Authenticatable implements JWTSubject
 {
 	use SoftDeletes;
 	protected $table = 'users';
