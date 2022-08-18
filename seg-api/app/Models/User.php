@@ -14,30 +14,33 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
+
 /**
  * Class User
- * 
+ *
  * @property int $id
  * @property string $name
  * @property string $email
  * @property string $password
- * @property string $profil
- * @property int $nbr_signalement
+ * @property int|null $nbr_signalement
  * @property Carbon $created_at
  * @property Carbon $updated_at
  * @property string $deleted_at
- * 
+ * @property int $profil_id
+ *
+ * @property Profil $profil
  * @property Collection|Evenement[] $evenements
  *
  * @package App\Models
  */
-class User extends Authenticatable implements JWTSubject
+class User extends Model
 {
 	use SoftDeletes;
 	protected $table = 'users';
 
 	protected $casts = [
-		'nbr_signalement' => 'int'
+		'nbr_signalement' => 'int',
+		'profil_id' => 'int'
 	];
 
 	protected $hidden = [
@@ -48,15 +51,19 @@ class User extends Authenticatable implements JWTSubject
 		'name',
 		'email',
 		'password',
-		'profil',
-		'nbr_signalement'
+		'nbr_signalement',
+		'profil_id'
 	];
+
+	public function profil()
+	{
+		return $this->belongsTo(Profil::class);
+	}
 
 	public function evenements()
 	{
 		return $this->hasMany(Evenement::class);
 	}
-
 
 
 	/**
@@ -68,7 +75,7 @@ class User extends Authenticatable implements JWTSubject
     {
         return $this->getKey();
     }
- 
+
     /**
      * Return a key value array, containing any custom claims to be added to the JWT.
      *

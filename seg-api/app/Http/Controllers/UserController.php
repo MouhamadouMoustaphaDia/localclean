@@ -3,42 +3,99 @@
 namespace App\Http\Controllers;
 
 //use App\Http\Requests\RegisterAuthRequest;
+
+use App\Models\Evenement;
+use App\Models\Profil;
 use App\Models\User;
 use Illuminate\Http\Request;
 use JWTAuth;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Illuminate\Support\Facades\Hash;
-use App\Models\UserBoulangery;
-use App\Models\Boulangery;
 use Illuminate\Support\Facades\DB;
 
 class userController extends Controller
 {
     public $loginAfterSignUp = true;
-    
-    public function register(Request $request)
+
+    public function addProfil(Request $request)
     {
-        try{  //ce Try catch permet de faire un rollback au cas où la transaction n'a pas aboutis
+        try{  //ce Try catch permet de faire un rollback au cas où la transaction n'a pas abouti
+            DB::beginTransaction();
+
+            $profil = Profil::create([
+            'name' => $request->get('name')
+             ]);
+
+        DB::commit();
+
+         return response()->json([
+            'success' => true,
+            'profil' => $profil
+        ]);
+
+      }catch (\Exception $e){
+
+        return response()->json([
+            'success' => false,
+        ]);
+
+        DB::rollback();
+       }
+
+    }
+
+    public function addEvenement(Request $request)
+    {
+        try{  //ce Try catch permet de faire un rollback au cas où la transaction n'a pas abouti
+            DB::beginTransaction();
+
+            $evenement = Evenement::create([
+                'description' => $request->get('description'),
+                'etat' => $request->get('etat'),
+                'lieu' => $request->get('lieu'),
+                'image' => $request->get('image'),
+                'user_id' => $request->get('user_id'),//Foreignekey
+             ]);
+
+        DB::commit();
+
+         return response()->json([
+            'success' => true,
+            'evenement' => $evenement
+        ]);
+
+      }catch (\Exception $e){
+
+        return response()->json([
+            'success' => false,
+        ]);
+
+        DB::rollback();
+       }
+
+    }
+
+    public function getProfil()
+    {
+        return DB::table('profils')->get();
+    }
+
+
+    public function addUser(Request $request)
+    {
+        try{  //ce Try catch permet de faire un rollback au cas où la transaction n'a pas abouti
             DB::beginTransaction();
 
             $user = User::create([
             'name' => $request->get('name'),
             'email' => $request->get('email'),
             'password' => Hash::make($request->get('password')),
-            'profil' => $request->get('profil'),
+            'image' => $request->get('image'),
             'nbr_signalement' => $request->get('nbr_signalement'),
-             ]);  
-         
-             //si tu veux tu peux utiliser cette requête d'insertion, c'est quasiment la mm chose
-      /*  $user = new User();
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password);
-        $user->profil = $request->profil;
-        $user->nbr_signalement = $request->nbr_signalement;
-        $user->save();
-        */
-        
+            'profil_id' => $request->get('profil_id'),//Foreignekey
+             ]);
+
+
 
         $token = JWTAuth::fromUser($user);
 
@@ -49,7 +106,7 @@ class userController extends Controller
             'user' => $user,
             'token' => $token
         ]);
-        
+
       }catch (\Exception $e){
 
         return response()->json([
@@ -58,29 +115,32 @@ class userController extends Controller
 
         DB::rollback();
        }
-       
+
     }
 
-
+    public function getEvenement()
+    {
+        return DB::table('evenements')->get();
+    }
 
     public function login(Request $request)
     {
         $input = $request->only('email', 'password');
         $jwt_token = null;
- 
+
         if (!$jwt_token = JWTAuth::attempt($input)) {
             return response()->json([
                 'success' => false,
                 'message' => 'Invalid email or Password',
             ], 401);
         }
-       
-         
+
+
             return response()->json([
                 'success' => true,
                 'token' => $jwt_token,
             ]);
-                      
+
     }
 
 
@@ -89,10 +149,10 @@ class userController extends Controller
         $this->validate($request, [
             'token' => 'required'
         ]);
- 
+
         try {
             JWTAuth::invalidate($request->token);
- 
+
             return response()->json([
                 'success' => true,
                 'message' => 'Utilisateur deconnecte avec succes'
