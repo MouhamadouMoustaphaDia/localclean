@@ -55,11 +55,65 @@
         </ul>
     </div>
     <ul class="nav">
-        <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
-            <a class="nav-link" [routerLink]="[menuItem.path]">
-                <i class="material-icons">{{menuItem.icon}}</i>
-                <p>{{menuItem.title}}</p>
+        <li routerLinkActive="active" class='nav-item'  >
+            <a class="nav-link" routerLink="/dashboard" >
+                <i class="material-icons">dashboard</i>
+                <p>Accueil</p>
+            </a>
+    </li>
+        <li routerLinkActive="active" class='nav-item'  >
+            <a class="nav-link" routerLink="/table-list" >
+                <i class="material-icons">content_paste</i>
+                <p>Evenement</p>
+            </a>
+    </li>
+        <li routerLinkActive="active" class='nav-item'  >
+            <a class="nav-link" routerLink="/maps" >
+                <i class="material-icons">location_on</i>
+                <p>Signalez une zone</p>
             </a>
         </li>
+        <li routerLinkActive="active" class='nav-item'  >
+            <a class="nav-link" routerLink="/typography" >
+                <i class="material-icons">library_books</i>
+                <p>Modérer un événement</p>
+            </a>
+        </li>
+        <li routerLinkActive="active" class='nav-item'  >
+            <a class="nav-link" routerLink="/notifications" >
+                <i class="material-icons">notifications</i>
+                <p>Notifications</p>
+            </a>
+        </li>
+        <li class="nav-item dropdown" >
+            <a class="nav-link" routerLink="/dashboard" >
+                <i class="material-icons">dashboard</i>
+                <p>Dashboard</p>
+            </a>
+            <div class='nav-item dropdown-menu'  >
+                <a class="dropdown-item" href="#">Link 1</a>
+                <a class="dropdown-item" href="#">Link 2</a>
+                <a class="dropdown-item" href="#">Link 3</a>
+            </div>
+        </li>
+        <div class="dropdown">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                Dropdown button
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item"  routerLink="/login">Login</a>
+                <a class="dropdown-item" href="#">Register</a>
+                <a class="dropdown-item" href="#">Profile</a>
+            </div>
+        </div>
+
+<!--        <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">-->
+<!--            <a class="nav-link" [routerLink]="[menuItem.path]">-->
+<!--                <i class="material-icons">{{menuItem.icon}}</i>-->
+<!--                <p>{{menuItem.title}}</p>-->
+<!--            </a>-->
+<!--        </li>-->
+
+
     </ul>
 </div>
