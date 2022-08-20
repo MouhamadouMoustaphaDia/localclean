@@ -1,0 +1,41 @@
+<h6 style="text-align: center;">Liste des evenements</h6>
+<table class='table table-bordered'>
+  <thead style='background-color: #2d8ac7'>
+  <tr>
+    <th>Description</th>
+    <th>Lieu</th>
+    <th>Image</th>
+    <th>Date de creation</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody style='background-color:white' >
+  <tr>
+    <td>patin</td>
+    <td >paris</td>
+    <td >jj</td>
+    <td>31/03</td>
+    <td>
+      <button   nbButton status="success" nbPopover="Voir la facture" nbPopoverTrigger="hint" nbPopoverPlacement="top"><i class="fas fa-file-invoice" aria-hidden="true"></i>  </button>
+      <button  nbButton status="warning" nbPopover="Voir la facture" nbPopoverTrigger="hint" nbPopoverPlacement="top" ><i class="fas fa-file-invoice" aria-hidden="true"></i>  </button>
+
+
+    </td>
+  </tr>
+  </tbody>
+
+</table>
+<!--<pagination-controls (pageChange)="p= $event"></pagination-controls>-->
+<!--<h3  align="center">Total vendu    :  <b> {{total |currency:"XAF":"symbol":'3.0':'fr' }}   <img class="bread" src="assets/svg/money01.svg"></b></h3>-->
+
+
+<ng-template #dialogSup let-data let-ref="dialogRef">
+  <nb-card>
+    <nb-card-header style="background-color: #2d8ac7">Suppression de la facture</nb-card-header>
+    <nb-card-body>{{data}}</nb-card-body>
+    <nb-card-footer>
+      <button nbButton (click)="ref.close()">Annuler</button>
+      <button type="submit" nbButton status="danger" style="margin-left: 5%;" >Supprimer</button>
+    </nb-card-footer>
+  </nb-card>
+</ng-template>

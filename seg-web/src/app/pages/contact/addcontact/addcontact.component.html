@@ -1,0 +1,477 @@
+<nb-card class="col-md-12 col-lg-12 col-xxxl-12">
+    <nb-card-body>
+        <nb-stepper orientation="horizontal">
+            <nb-step [label]="labelOne">
+                <ng-template #labelOne>First step</ng-template>
+                <div class="col-lg-10" style="float:none;margin:auto;">
+                    <nb-card>
+                        <nb-card-header>Informations du clients</nb-card-header>
+                        <nb-card-body>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="inputFirstName" class="label">Nom </label>
+                                        <input type="text" nbInput fullWidth placeholder="Nick">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="inputFirstName" class="label">Prenom </label>
+                                        <input type="text" nbInput fullWidth placeholder="Last Name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="inputFirstName" class="label">Nom représentant</label>
+                                        <input type="text" nbInput fullWidth placeholder="Nick">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="inputFirstName" class="label">Qualité représentant </label>
+                                        <input type="text" nbInput fullWidth placeholder="Last Name">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="inputFirstName" class="label">Adresse</label>
+                                        <input type="text" nbInput fullWidth placeholder="Nick">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="inputFirstName" class="label">Adresse de facturation </label>
+                                        <input type="text" nbInput fullWidth placeholder="Last Name">
+                                    </div>
+                                </div>
+                            </div>
+                           
+                        </nb-card-body>
+                    </nb-card>
+                </div>
+                <button nbButton disabled nbStepperNext status="success">prev</button>
+                <button nbButton nbStepperNext status="success">next</button>
+            </nb-step>
+            <nb-step [label]="labelTwo">
+                <ng-template #labelTwo>Second step</ng-template>
+                <div class="col-lg-10" style="float:none;margin:auto;">
+                    <nb-card>
+                        <nb-card-header>SUITE INFORMATIONS CLIENT</nb-card-header>
+                        <nb-card-body>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="inputFirstName" class="label">Profession</label>
+                                        <input type="text" nbInput fullWidth placeholder="Nick">
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label for="inputFirstName" class="label">Email </label>
+                                        <input type="text" nbInput fullWidth placeholder="Last Name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label for="inputFirstName" class="label">Téléphone bureau</label>
+                                        <input type="text" nbInput fullWidth placeholder="Nick">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label for="inputFirstName" class="label">Téléphone domicile </label>
+                                        <input type="text" nbInput fullWidth placeholder="Last Name">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label for="inputFirstName" class="label">Téléphone portable </label>
+                                        <input type="text" nbInput fullWidth placeholder="Last Name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label for="inputFirstName" class="label">Type de pièce </label>
+
+                                        <nb-select selected="1">
+                                            <nb-option value="1">Option 1</nb-option>
+                                            <nb-option value="2">Option 2</nb-option>
+                                        </nb-select>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label for="inputFirstName" class="label">Numéro de pièce d'identité produite </label>
+                                        <input type="text" nbInput fullWidth placeholder="Last Name">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label for="inputFirstName" class="label">Délivrée le   </label>
+                                        <input type="text" nbInput fullWidth placeholder="Last Name">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </nb-card-body>
+                    </nb-card>
+                </div>
+                <button nbButton nbStepperPrevious status="warning">prev</button>
+                <button nbButton nbStepperNext status="success">next</button>
+            </nb-step>
+            <nb-step label="Third step">
+                <div class="col-lg-10" style="float:none;margin:auto;">
+                    <nb-card>
+                        <nb-card-header>OPTIONS DE L’OFFRE FIBRE</nb-card-header>
+                        <nb-card-body>
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="inputFirstName" class="label">Ligne téléphonique devant supporter le service TV d’Orange </label>
+                                    <input type="text" nbInput fullWidth placeholder="Nick">
+                                </div>
+                        </div>
+                      
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="inputFirstName" class="label">Compte TV d’Orange Identifiant</label>
+                                    <input type="text" nbInput fullWidth placeholder="Nick">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="inputFirstName" class="label">Mot de passe  </label>
+                                    <input type="text" nbInput fullWidth placeholder="Last Name">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="inputFirstName" class="label">Compte d’accès</label>
+                                    <input type="text" nbInput fullWidth placeholder="Nick">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="inputFirstName" class="label">Mot de passe </label>
+                                    <input type="text" nbInput fullWidth placeholder="Last Name">
+                                </div>
+                            </div>
+                        </div>
+
+
+                            
+                        </nb-card-body>
+                    </nb-card>
+                </div>
+                <button nbButton nbStepperPrevious status="warning">prev</button>
+                <button nbButton nbStepperNext status="success">next</button>
+            </nb-step>
+            <nb-step [label]="labelFour">
+                <ng-template #labelFour>Fourth step</ng-template>
+                <div class="col-lg-10" style="float:none;margin:auto;">
+                    <nb-card>
+                        <nb-card-header>INFORMATIONS TECHNIQUES</nb-card-header>
+                        <nb-card-body>
+                
+                <div class="row">
+                    <div class="form-group">
+                        <label for="inputFirstName" class="label">Ligne téléphonique devant supporter le service TV d’Orange </label>
+                        <input type="text" nbInput fullWidth placeholder="Nick">
+                    </div>
+            </div>
+          
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputFirstName" class="label">Compte TV d’Orange Identifiant</label>
+                        <input type="text" nbInput fullWidth placeholder="Nick">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputFirstName" class="label">Mot de passe  </label>
+                        <input type="text" nbInput fullWidth placeholder="Last Name">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputFirstName" class="label">Compte d’accès</label>
+                        <input type="text" nbInput fullWidth placeholder="Nick">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputFirstName" class="label">Mot de passe </label>
+                        <input type="text" nbInput fullWidth placeholder="Last Name">
+                    </div>
+                </div>
+            </div>
+                        </nb-card-body>
+                    </nb-card></div>
+                <button nbButton nbStepperPrevious status="warning">prev</button>
+                <button nbButton nbStepperNext status="success">next</button>
+            </nb-step>
+            <nb-step [label]="labelFive">
+                <ng-template #labelFive>Fifth step</ng-template>
+                <div class="col-lg-10" style="float:none;margin:auto;">
+                    <nb-card>
+                        <nb-card-header>INFORMATIONS FINANCIERES </nb-card-header>
+                        <nb-card-body>
+                
+                <div class="row">
+                    <div class="form-group">
+                        <label for="inputFirstName" class="label">Ligne téléphonique devant supporter le service TV d’Orange </label>
+                        <input type="text" nbInput fullWidth placeholder="Nick">
+                    </div>
+            </div>
+          
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputFirstName" class="label">Compte TV d’Orange Identifiant</label>
+                        <input type="text" nbInput fullWidth placeholder="Nick">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputFirstName" class="label">Mot de passe  </label>
+                        <input type="text" nbInput fullWidth placeholder="Last Name">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputFirstName" class="label">Compte d’accès</label>
+                        <input type="text" nbInput fullWidth placeholder="Nick">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputFirstName" class="label">Mot de passe </label>
+                        <input type="text" nbInput fullWidth placeholder="Last Name">
+                    </div>
+                </div>
+            </div>
+                        </nb-card-body>
+                    </nb-card></div>
+                <button nbButton nbStepperPrevious status="warning">prev</button>
+                <button nbButton nbStepperNext status="success">next</button>
+            </nb-step>
+            <nb-step [label]="labelSixe">
+                <ng-template #labelSixe>Sixth step</ng-template>
+                <div class="col-lg-10" style="float:none;margin:auto;">
+                    <nb-card>
+                        <nb-card-header>EQUIPEMENTS MIS A DISPOSITION DU CLIENT </nb-card-header>
+                        <nb-card-body>
+                
+                <div class="row">
+                    <div class="form-group">
+                        <label for="inputFirstName" class="label">Ligne téléphonique devant supporter le service TV d’Orange </label>
+                        <input type="text" nbInput fullWidth placeholder="Nick">
+                    </div>
+            </div>
+          
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputFirstName" class="label">Compte TV d’Orange Identifiant</label>
+                        <input type="text" nbInput fullWidth placeholder="Nick">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputFirstName" class="label">Mot de passe  </label>
+                        <input type="text" nbInput fullWidth placeholder="Last Name">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputFirstName" class="label">Compte d’accès</label>
+                        <input type="text" nbInput fullWidth placeholder="Nick">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputFirstName" class="label">Mot de passe </label>
+                        <input type="text" nbInput fullWidth placeholder="Last Name">
+                    </div>
+                </div>
+            </div>
+                        </nb-card-body>
+                    </nb-card></div>
+                <button nbButton nbStepperPrevious status="warning">prev</button>
+                <button nbButton nbStepperNext status="success">next</button>
+            </nb-step>
+            <nb-step [label]="labelSeven">
+                <ng-template #labelSeven>Seventh step</ng-template>
+                <div class="col-lg-10" style="float:none;margin:auto;">
+                    <nb-card>
+                        <nb-card-header>MENTIONS LEGALES</nb-card-header>
+                        <nb-card-body>
+                
+                <div class="row">
+                    <div class="form-group">
+                        <label for="inputFirstName" class="label">Ligne téléphonique devant supporter le service TV d’Orange </label>
+                        <input type="text" nbInput fullWidth placeholder="Nick">
+                    </div>
+            </div>
+          
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputFirstName" class="label">Compte TV d’Orange Identifiant</label>
+                        <input type="text" nbInput fullWidth placeholder="Nick">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputFirstName" class="label">Mot de passe  </label>
+                        <input type="text" nbInput fullWidth placeholder="Last Name">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputFirstName" class="label">Compte d’accès</label>
+                        <input type="text" nbInput fullWidth placeholder="Nick">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputFirstName" class="label">Mot de passe </label>
+                        <input type="text" nbInput fullWidth placeholder="Last Name">
+                    </div>
+                </div>
+            </div>
+                        </nb-card-body>
+                    </nb-card></div>
+                <button nbButton nbStepperPrevious status="warning">prev</button>
+                <button nbButton nbStepperNext status="success">next</button>
+            </nb-step>
+
+            <nb-step [label]="labelEight">
+                <ng-template #labelEight>Eighth step</ng-template>
+                <div class="col-lg-10" style="float:none;margin:auto;">
+                    <nb-card>
+                        <nb-card-header>CADRE RESERVE A LA SONATEL</nb-card-header>
+                        <nb-card-body>
+                
+                <div class="row">
+                    <div class="form-group">
+                        <label for="inputFirstName" class="label">Ligne téléphonique devant supporter le service TV d’Orange </label>
+                        <input type="text" nbInput fullWidth placeholder="Nick">
+                    </div>
+            </div>
+          
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputFirstName" class="label">Compte TV d’Orange Identifiant</label>
+                        <input type="text" nbInput fullWidth placeholder="Nick">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputFirstName" class="label">Mot de passe  </label>
+                        <input type="text" nbInput fullWidth placeholder="Last Name">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputFirstName" class="label">Compte d’accès</label>
+                        <input type="text" nbInput fullWidth placeholder="Nick">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputFirstName" class="label">Mot de passe </label>
+                        <input type="text" nbInput fullWidth placeholder="Last Name">
+                    </div>
+                </div>
+            </div>
+                        </nb-card-body>
+                    </nb-card></div>
+                <button nbButton nbStepperPrevious status="warning">prev</button>
+                <button nbButton nbStepperNext status="success">next</button>
+            </nb-step>
+
+            <nb-step [label]="labelNinth">
+                <ng-template #labelNinth>Ninth step</ng-template>
+                <div class="col-lg-10" style="float:none;margin:auto;">
+                    <nb-card>
+                        <nb-card-header>VALIDATION</nb-card-header>
+                        <nb-card-body>
+                
+                <div class="row">
+                    <div class="form-group">
+                        <label for="inputFirstName" class="label">Ligne téléphonique devant supporter le service TV d’Orange </label>
+                        <input type="text" nbInput fullWidth placeholder="Nick">
+                    </div>
+            </div>
+          
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputFirstName" class="label">Compte TV d’Orange Identifiant</label>
+                        <input type="text" nbInput fullWidth placeholder="Nick">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputFirstName" class="label">Mot de passe  </label>
+                        <input type="text" nbInput fullWidth placeholder="Last Name">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputFirstName" class="label">Compte d’accès</label>
+                        <input type="text" nbInput fullWidth placeholder="Nick">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="inputFirstName" class="label">Mot de passe </label>
+                        <input type="text" nbInput fullWidth placeholder="Last Name">
+                    </div>
+                </div>
+            </div>
+                        </nb-card-body>
+                    </nb-card></div>
+                <button nbButton nbStepperPrevious status="warning">prev</button>
+                <button nbButton disabled nbStepperNext status="success">next</button>
+            </nb-step>
+
+        </nb-stepper>
+    </nb-card-body>
+</nb-card>

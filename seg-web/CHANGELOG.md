@@ -1,146 +1,276 @@
-## [2.7.0] - 2022-04-03
-### Updates
-- update to Angular 13
-- update all dependencies to match Angular 13 version
+<a name="7.0.0"></a>
+# [7.0.0](https://github.com/akveo/ngx-admin/compare/v6.0.0...v7.0.0) (2021-01-19)
 
-## [2.6.0] - 2021-07-15
-### Updates
-- update to Angular 12
-- update all dependencies to match Angular 12 version
-
-When you build and serve your app it is possible that some warnings to appear on your terminal. Those will NOT affect your product.
-
-## [2.5.0] - 2020-10-07
-### Updates
-- update to Angular 10
-- update all dependencies to match Angular 10 version
+* feat: update to Angular 11 ([#5826](https://github.com/akveo/ngx-admin/issues/5826)) ([ebe1810](https://github.com/akveo/ngx-admin/commit/ebe1810))
 
 
-## [2.4.0] - 2020-03-05
-### Updates
-- update to Angular 9
-- update all dependencies to match Angular 9 version
 
-## [2.3.0] - 2019-06-11
-### Updates
-- update to Angular 8
-- update all dependencies to match Angular 8 version
-```
-@agm/core                           1.0.0-beta.5   →   1.0.0-beta.6
-@angular/animations                        7.0.2   →          8.0.0
-@angular/cdk                               7.0.2   →          8.0.1
-@angular/common                            7.0.2   →          8.0.0
-@angular/compiler                          7.0.2   →          8.0.0
-@angular/core                              7.0.2   →          8.0.0
-@angular/forms                             7.0.2   →          8.0.0
-@angular/http                              7.0.2   →         7.2.15
-@angular/material                          7.0.2   →          8.0.1
-@angular/platform-browser                  7.0.2   →          8.0.0
-@angular/platform-browser-dynamic          7.0.2   →          8.0.0
-@angular/platform-server                   7.0.2   →          8.0.0
-@angular/router                            7.0.2   →          8.0.0
-ajv                                        6.4.0   →         6.10.0
-bootstrap                                  4.1.0   →          4.3.1
-bootstrap-material-design                  4.1.1   →          4.1.2
-chartist                                  0.11.0   →         0.11.2
-core-js                                    2.4.1   →          3.1.3
-express                                   4.16.3   →         4.17.1
-googleapis                                28.1.0   →         40.0.0
-jquery                                     3.2.1   →          3.4.1
-moment                                    2.22.1   →         2.24.0
-perfect-scrollbar                          1.1.0   →          1.4.0
-popper.js                                 1.14.3   →         1.15.0
-rxjs                                       6.3.3   →          6.5.2
-rxjs-compat                                6.3.3   →          6.5.2
-zone.js                                   0.8.26   →          0.9.1
-@angular-devkit/build-angular              0.6.3   →        0.800.2
-@angular/cli                               7.0.2   →          8.0.2
-@angular/compiler-cli                      7.0.2   →          8.0.0
-@angular/language-service                  7.0.2   →          8.0.0
-@types/bootstrap                          3.3.32   →          4.3.0
-@types/chartist                           0.9.34   →         0.9.46
-@types/googlemaps                         3.30.8   →         3.36.4
-@types/jasmine                            2.5.38   →         3.3.13
-@types/jquery                            1.10.31   →         3.3.29
-@types/node                               6.0.73   →         12.0.7
-codelyzer                                  4.2.1   →          5.1.0
-jasmine-core                               3.3.0   →          3.4.0
-karma                                      2.0.0   →          4.1.0
-karma-cli                                  1.0.1   →          2.0.0
-karma-coverage-istanbul-reporter           1.4.2   →          2.0.5
-karma-jasmine                              1.1.1   →          2.0.1
-karma-jasmine-html-reporter                1.4.0   →          1.4.2
-protractor                                 5.3.1   →          5.4.2
-ts-node                                    5.0.1   →          8.2.0
-tslint                                     5.9.1   →         5.17.0
-typescript                                 3.1.6   →          3.4.5
-```
-### Bug fixing
-- browser console error
-```
-href="#pablo" -> href="javascript:void(0)"
-href="#"      -> href="javascript:void(0)"
-```
-- form-validation error from the `_forms.scss` file
-```
-@include form-validation-state("valid", $label-color); -> @include form-validation-state("valid", $label-color, $form-feedback-icon-valid);
-```
-- added hash for google url validation
+<a name="6.0.0"></a>
+# [6.0.0](https://github.com/akveo/ngx-admin/compare/v5.0.0...v6.0.0) (2020-08-19)
 
-## [2.2.0] - 2018-11-14
-### Changes
-- update to Angular 7
-- update all dependencies to match Angular 7 version
 
-## [2.1.1] - 2018-05-23
-### Fixes
-- changed some links
+### Bug Fixes
 
-## [2.1.0] - 2018-04-27
-### Fixes
-- changed file structure
-- moved documentation online
+* **echarts:** set merge input ([#5632](https://github.com/akveo/ngx-admin/issues/5632)) ([dfaa5cd](https://github.com/akveo/ngx-admin/commit/dfaa5cd))
+* **sidebar:** toggle performance issues ([#5658](https://github.com/akveo/ngx-admin/issues/5658)) ([9eaf0bb](https://github.com/akveo/ngx-admin/commit/9eaf0bb))
 
-## [2.0.0] - 2018-04-20
-### Fixes
-- added bootstrap 4
-- added angular 5
 
-## [1.4.2] - 2017-10-01
-### Fixes
-- added Perfect Scrollbar
-- added scrollTop on route change
-- added closeSidebar on mobile
-- autocompile scss files
-- fixes for IE
-- update package dependencies to 4.4.4
+### Features
 
-## [1.4.1] - 2017-09-19
-### Material
-- added material.init()
-- fixed input float problem
-- fixed checkboxes in tabs
+* update to Angular 10 ([#5747](https://github.com/akveo/ngx-admin/issues/5747)) ([ec3282c](https://github.com/akveo/ngx-admin/commit/ec3282c))
 
-## [1.4.0] - 2017-08-23
-### Changes for Angular 4
-- added angular-cli
-- update to Angular 4
+### BREAKING CHANGES
 
-## [v1.3.0] 2017-08-23
-### skipped for sync with Angular 4 version convention
+- Angular updated to version 10.
+- Nebular updated to version 6.
 
-## [1.2.0] - 2017-04-05
-### Added
-- added Upgrade to PRO page
-- update package
-- made sidebar dynamic
 
-## [1.1.1] - 2017-03-21
-### Added
-- added "@types/core-js": "0.9.35" in package
+<a name="5.0.0"></a>
+# [5.0.0](https://github.com/akveo/ngx-admin/compare/v4.0.1...v5.0.0) (2020-04-01)
 
-## [1.1.0] - 2017-03-20
-### small fix
 
-## [1.0.0] - 2017-01-30
-### initial Release
+### Bug Fixes
+
+* **forms:** add missing forms module import ([#5530](https://github.com/akveo/ngx-admin/issues/5530)) ([1ff2a0d](https://github.com/akveo/ngx-admin/commit/1ff2a0d))
+* **tinymce:** set absolute path for skin url ([#5491](https://github.com/akveo/ngx-admin/issues/5491)) ([90125ab](https://github.com/akveo/ngx-admin/commit/90125ab))
+
+
+### Features
+
+* upgrade to Angular 9 and Nebular 5 ([#5628](https://github.com/akveo/ngx-admin/issues/5628)) ([fbbf944](https://github.com/akveo/ngx-admin/commit/fbbf944))
+* **seo:** add canonical tag ([#5578](https://github.com/akveo/ngx-admin/issues/5578)) ([76d31da](https://github.com/akveo/ngx-admin/commit/76d31da))
+* add calendar with week numbers example ([#5515](https://github.com/akveo/ngx-admin/issues/5515)) ([3242257](https://github.com/akveo/ngx-admin/commit/3242257))
+
+
+### BREAKING CHANGES
+
+- Angular updated to version 9.
+- Nebular updated to version 5.
+- `@agm/core` replaced with `@angular/google-maps`.
+- `ng2-completer` replaced with `@akveo/ng2-completer`, read details [here](https://github.com/akveo/ng2-smart-table/pull/1140#issue-392285957).
+
+
+
+<a name="4.0.1"></a>
+## [4.0.1](https://github.com/akveo/ngx-admin/compare/v4.0.0...v4.0.1) (2019-07-16)
+
+
+### Bug Fixes
+
+* **typography:** prevent bootstrap color override ([#2161](https://github.com/akveo/ngx-admin/issues/2161)) ([243390c](https://github.com/akveo/ngx-admin/commit/243390c))
+
+
+### Features
+
+* update Nebular to 4.1.2 ([#5451](https://github.com/akveo/ngx-admin/issues/5451)) ([a2e93f9](https://github.com/akveo/ngx-admin/commit/a2e93f9))
+
+
+
+<a name="4.0.0"></a>
+# [4.0.0](https://github.com/akveo/ngx-admin/compare/v3.2.0...v4.0.0) (2019-07-02)
+
+- Update to Nebular 4 based on Eva Design System
+- New Dark theme
+- Angular 8
+
+### Features
+
+* update to Angular 8, Nebular 4 ([#2114](https://github.com/akveo/ngx-admin/issues/2114)) ([e9600b4](https://github.com/akveo/ngx-admin/commit/e9600b4))
+
+
+
+<a name="3.2.1"></a>
+## [3.2.1](https://github.com/akveo/ngx-admin/compare/v3.2.0...v3.2.1) (2019-04-02)
+
+
+### Bug Fixes
+
+* update [@angular-devkit](https://github.com/angular-devkit)/build-angular to fix import aliases ([78695cd](https://github.com/akveo/ngx-admin/commit/78695cd))
+
+
+
+<a name="3.2.0"></a>
+# [3.2.0](https://github.com/akveo/ngx-admin/compare/v3.1.0...v3.2.0) (2019-04-02)
+
+
+### Bug Fixes
+
+* **dashboard:** update title country->region the orders list component  ([#1987](https://github.com/akveo/ngx-admin/issues/1987)) ([cf1bf4d](https://github.com/akveo/ngx-admin/commit/cf1bf4d))
+* **readme:** fix demo links ([#2028](https://github.com/akveo/ngx-admin/issues/2028)) ([1fb3205](https://github.com/akveo/ngx-admin/commit/1fb3205))
+* **rtl:** remove duplicate of nebular styles ([#1824](https://github.com/akveo/ngx-admin/issues/1824)) ([d8e7092](https://github.com/akveo/ngx-admin/commit/d8e7092))
+* **setting-sidebar:** Ie and firefox position bugs, linter ([#2023](https://github.com/akveo/ngx-admin/issues/2023)) ([8d471ba](https://github.com/akveo/ngx-admin/commit/8d471ba))
+* **sidebar:** Add Form Inputs extra component menu item ([#1966](https://github.com/akveo/ngx-admin/issues/1966)) ([658aa19](https://github.com/akveo/ngx-admin/commit/658aa19)), closes [#1965](https://github.com/akveo/ngx-admin/issues/1965)
+
+
+### Features
+
+* update dependencies (Angular, Nebular) ([#2072](https://github.com/akveo/ngx-admin/issues/2072)) ([db2f451](https://github.com/akveo/ngx-admin/commit/db2f451))
+
+
+
+<a name="3.1.0"></a>
+# [3.1.0](https://github.com/akveo/ngx-admin/compare/v3.0.0...v3.1.0) (2019-01-23)
+
+
+### Bug Fixes
+
+* **datepicker:** fix datepicker arrow style ([#1925](https://github.com/akveo/ngx-admin/issues/1925)) ([a878197](https://github.com/akveo/ngx-admin/commit/a878197))
+* **toggle-settings-button:** position while search open ([#1993](https://github.com/akveo/ngx-admin/issues/1993)) ([f17aa32](https://github.com/akveo/ngx-admin/commit/f17aa32))
+
+
+### Features
+
+* **animation:** add fade in animation by route change ([#1958](https://github.com/akveo/ngx-admin/issues/1958)) ([773c14e](https://github.com/akveo/ngx-admin/commit/773c14e))
+* **data:** update data module, add new mock data ([#1960](https://github.com/akveo/ngx-admin/issues/1960)) ([47d232b](https://github.com/akveo/ngx-admin/commit/47d232b))
+* **layout config:** reduce gear button size ([#2002](https://github.com/akveo/ngx-admin/issues/2002)) ([1f56f2a](https://github.com/akveo/ngx-admin/commit/1f56f2a))
+* **settings:** redesign setting sidebar ([#1982](https://github.com/akveo/ngx-admin/issues/1982)) ([a73662f](https://github.com/akveo/ngx-admin/commit/a73662f))
+* **sidebar:** remove label new from sidebar ([#1921](https://github.com/akveo/ngx-admin/issues/1921)) ([d80c8da](https://github.com/akveo/ngx-admin/commit/d80c8da))
+* update Nebular to 3.1.0 ([33db902](https://github.com/akveo/ngx-admin/commit/33db902))
+
+
+
+<a name="3.0.0"></a>
+# [3.0.0](https://github.com/akveo/ngx-admin/compare/v2.3.0...v3.0.0) (2018-11-19)
+
+
+### Bug Fixes
+
+* **buttons:** change tiny button class to x-small ([#1826](https://github.com/akveo/ngx-admin/issues/1826)) ([a721fd8](https://github.com/akveo/ngx-admin/commit/a721fd8))
+* **chart:** resize chart on sidebar expand/collapse ([#1816](https://github.com/akveo/ngx-admin/issues/1816)) ([aa8e7cd](https://github.com/akveo/ngx-admin/commit/aa8e7cd))
+* **readme:** update doc (starter kit) link ([#1770](https://github.com/akveo/ngx-admin/issues/1770)) ([6456141](https://github.com/akveo/ngx-admin/commit/6456141))
+* **tslint:** add correct semicolon option ([#1777](https://github.com/akveo/ngx-admin/issues/1777)) ([00e6ca5](https://github.com/akveo/ngx-admin/commit/00e6ca5))
+
+
+### Features
+
+* **app:** update Nebular to the latest 2.0.1 version ([#1868](https://github.com/akveo/ngx-admin/issues/1868)) ([16bcc90](https://github.com/akveo/ngx-admin/commit/16bcc90)), closes [#1866](https://github.com/akveo/ngx-admin/issues/1866)
+* **dashboard:** add new E-commerce dashboard ([#1754](https://github.com/akveo/ngx-admin/issues/1754)) ([56e4709](https://github.com/akveo/ngx-admin/commit/56e4709))
+* **icons:** update font awesome to 5.2.0 ([#1798](https://github.com/akveo/ngx-admin/issues/1798)) ([f20c371](https://github.com/akveo/ngx-admin/commit/f20c371))
+* add a bunch of new Nebular demos ([#1911](https://github.com/akveo/ngx-admin/issues/1911)) ([3f1f4c5](https://github.com/akveo/ngx-admin/commit/3f1f4c5))
+* **icons:** add eva-icons ([#1912](https://github.com/akveo/ngx-admin/issues/1912)) ([b3d7b7b](https://github.com/akveo/ngx-admin/commit/b3d7b7b))
+* add ng2-completer to dependencies list ([3482404](https://github.com/akveo/ngx-admin/commit/3482404))
+* **app:** angular 7+ update ([#1910](https://github.com/akveo/ngx-admin/issues/1910)) ([aa7579c](https://github.com/akveo/ngx-admin/commit/aa7579c)), closes [#1890](https://github.com/akveo/ngx-admin/issues/1890)
+* **app:** update Nebular to 3.0.0 version ([#1916](https://github.com/akveo/ngx-admin/issues/1916)) ([c594a5a](https://github.com/akveo/ngx-admin/commit/c594a5a))
+* **app:** update Nebular to rc.10 ([50961f3](https://github.com/akveo/ngx-admin/commit/50961f3))
+
+
+### BREAKING CHANGES
+
+* Angular 7+ now required.
+The following libraries were updated:
+- @agm/core
+- @ng-bootstrap/ng-bootstrap
+- @swimlane/ngx-charts
+- ng2-ckeditor
+- ngx-echarts
+* **icons:** Since this is a major package update we recommend looking through the upgrade guide https://fontawesome.com/how-to-use/on-the-web/setup/upgrading-from-version-4
+
+
+
+<a name="2.3.0"></a>
+# [2.3.0 - Corporate Theme](https://github.com/akveo/ngx-admin/compare/v2.2.0...v2.3.0) (2018-06-22)
+
+
+### Bug Fixes
+
+* **buttons:** Uncheck checkbox after click ([#1721](https://github.com/akveo/ngx-admin/issues/1721)) ([fbe12a9](https://github.com/akveo/ngx-admin/commit/fbe12a9)), closes [#1697](https://github.com/akveo/ngx-admin/issues/1697)
+* **readme:** update docs link ([#1743](https://github.com/akveo/ngx-admin/issues/1743)) ([a6d5d49](https://github.com/akveo/ngx-admin/commit/a6d5d49))
+* **temperature:** fix temperature dragger gradient, fix switcher button hover background ([#1745](https://github.com/akveo/ngx-admin/issues/1745)) ([f12bd9f](https://github.com/akveo/ngx-admin/commit/f12bd9f))
+* **tree:** fix tree component, replace ng2-tree on the angular-tree-component ([22c161f](https://github.com/akveo/ngx-admin/commit/22c161f)), closes [#1690](https://github.com/akveo/ngx-admin/issues/1690)
+
+
+### Features
+
+* update Nebular to rc.9 ([#1741](https://github.com/akveo/ngx-admin/issues/1741)) ([18a4750](https://github.com/akveo/ngx-admin/commit/18a4750))
+* **app:** set default font-size to 14px ([#1742](https://github.com/akveo/ngx-admin/issues/1742)) ([6d705d2](https://github.com/akveo/ngx-admin/commit/6d705d2))
+* **icons:** update icons, add new nebular icons to icons list ([#1738](https://github.com/akveo/ngx-admin/issues/1738)) ([cef6ea6](https://github.com/akveo/ngx-admin/commit/cef6ea6))
+* **readme:** add new theme ([#1744](https://github.com/akveo/ngx-admin/issues/1744)) ([d25ad7a](https://github.com/akveo/ngx-admin/commit/d25ad7a))
+* **theme:** add corporate theme ([#1727](https://github.com/akveo/ngx-admin/issues/1727)) ([e37f12d](https://github.com/akveo/ngx-admin/commit/e37f12d))
+* **toaster:** update toaster to latest version (6.0.0) ([#1722](https://github.com/akveo/ngx-admin/issues/1722)) ([b85034e](https://github.com/akveo/ngx-admin/commit/b85034e))
+
+
+
+<a name="2.2.0"></a>
+# [2.2.0](https://github.com/akveo/ngx-admin/compare/v2.1.1...v2.2.0) (2018-05-14)
+
+
+### Features
+
+* add NotFound page ([#1672](https://github.com/akveo/ngx-admin/issues/1672)) ([fa3cdf7](https://github.com/akveo/ngx-admin/commit/fa3cdf7))
+* RTL support ([#1634](https://github.com/akveo/ngx-admin/issues/1634)) ([3b63759](https://github.com/akveo/ngx-admin/commit/3b63759))
+* update to Angular 6 ([#1684](https://github.com/akveo/ngx-admin/issues/1684)) ([06d2197](https://github.com/akveo/ngx-admin/commit/06d2197))
+
+
+
+<a name="2.1.1"></a>
+## [2.1.1](https://github.com/akveo/ngx-admin/compare/v2.1.0...v2.1.1) (2018-04-26)
+
+
+### Bug Fixes
+
+* **dashboard:** fix temp/humidity buttons ([0f494dc](https://github.com/akveo/ngx-admin/commit/0f494dc))
+* **echarts:** fix x-axis style ([ba6877c](https://github.com/akveo/ngx-admin/commit/ba6877c))
+* **icons:** remove All Nebular Icons link as there are no more icons ([edb05b7](https://github.com/akveo/ngx-admin/commit/edb05b7)), closes [#1597](https://github.com/akveo/ngx-admin/issues/1597)
+* **ie:** add es7 object polyfill for IE ([0630fe7](https://github.com/akveo/ngx-admin/commit/0630fe7))
+* **map:** get the bubble map back (thanks to @SUlbrichA) ([#1655](https://github.com/akveo/ngx-admin/issues/1655)) ([19f9d0e](https://github.com/akveo/ngx-admin/commit/19f9d0e)), closes [#1576](https://github.com/akveo/ngx-admin/issues/1576)
+
+
+### Features
+
+* **search-map:** set default location Minsk ([#1573](https://github.com/akveo/ngx-admin/issues/1573)) ([b54ab9f](https://github.com/akveo/ngx-admin/commit/b54ab9f))
+* update nebular to rc.7 ([#1658](https://github.com/akveo/ngx-admin/issues/1658)) ([510d3c2](https://github.com/akveo/ngx-admin/commit/510d3c2))
+
+
+
+<a name="2.1.0"></a>
+# [2.1.0](https://github.com/akveo/ngx-admin/compare/v2.0.2...v2.1.0) (2018-02-26)
+
+Nebular updated to rc.6.
+
+### Bug Fixes
+
+* **bootstrap:** radio temp fix ([14f5112](https://github.com/akveo/ngx-admin/commit/14f5112))
+* **dashboard:** update btn group toggle html ([#1566](https://github.com/akveo/ngx-admin/issues/1566)) ([2aa114b](https://github.com/akveo/ngx-admin/commit/2aa114b))
+
+
+### Features
+
+* **auth:** configurable auth social icons ([#1545](https://github.com/akveo/ngx-admin/issues/1545)) ([9381d8c](https://github.com/akveo/ngx-admin/commit/9381d8c)), closes [#1515](https://github.com/akveo/ngx-admin/issues/1515)
+* **bootstrap:** update to 4.0.0 release  ([ddb6306](https://github.com/akveo/ngx-admin/commit/ddb6306))
+* **maps:** add google map with access search location dropdown ([97c7134](https://github.com/akveo/ngx-admin/commit/97c7134))
+* **popover:** add popover showcase ([#1556](https://github.com/akveo/ngx-admin/issues/1556)) ([f4cdf4a](https://github.com/akveo/ngx-admin/commit/f4cdf4a))
+* **security:** include @nebular/security, ACL setup ([#1565](https://github.com/akveo/ngx-admin/issues/1565)) ([480a90b](https://github.com/akveo/ngx-admin/commit/480a90b))
+* **user:** replace `menu` with `nbContextMenu` directive ([fb5de37](https://github.com/akveo/ngx-admin/commit/fb5de37))
+
+
+
+<a name="2.0.2"></a>
+## [2.0.2](https://github.com/akveo/ngx-admin/compare/v2.0.1...v2.0.2) (2018-01-04)
+
+
+### Bug Fixes
+
+* **dashboard:** fix mistyped ngbDropdownMenu in some ngbDropdown ul elements ([#1458](https://github.com/akveo/ngx-admin/issues/1458)) ([fa83572](https://github.com/akveo/ngx-admin/commit/fa83572))
+* **dashboard:** fix typo in styles ([#1460](https://github.com/akveo/ngx-admin/issues/1460)) ([630c249](https://github.com/akveo/ngx-admin/commit/630c249))
+
+
+### Features
+
+* **dependencies:** update dependencies, angular 5+, nebular rc.4 ([26e16ed](https://github.com/akveo/ngx-admin/commit/26e16ed))
+
+
+
+<a name="2.0.1"></a>
+## [2.0.1](https://github.com/akveo/ngx-admin/compare/v2.0.0...v2.0.1) (2017-10-26)
+
+
+Nebular changelog is available [here](https://github.com/akveo/nebular/blob/master/CHANGELOG.md#200-rc3-2017-10-26) for more details. 
+
+### Features
+
+* **bootstrap:** update bootstrap to beta.2, nebular to rc.3 ([b525213](https://github.com/akveo/ngx-admin/commit/b525213))
+* **compodoc:** add compodoc documentation generator ([#1327](https://github.com/akveo/ngx-admin/issues/1327)) ([eebbc12](https://github.com/akveo/ngx-admin/commit/eebbc12))
+* **loader:** add loading progress indicator ([#1319](https://github.com/akveo/ngx-admin/issues/1319)) ([f479715](https://github.com/akveo/ngx-admin/commit/f479715))
+
+
+

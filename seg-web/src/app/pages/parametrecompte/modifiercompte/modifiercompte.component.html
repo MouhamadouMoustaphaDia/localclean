@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-lg-6" style="float:none;margin:auto;">
+      <nb-card>
+        <nb-card-header style="text-align: center;">
+          <b> Changement de mot de passe</b>
+        </nb-card-header>
+  
+        <nb-card-body>
+<form class="form-signin" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
+    <div class="container-fluid">
+        <div *ngIf="invalidLogin" class="alert alert-danger">Login ou mot de passe invalide</div>
+        <br>
+        <label for="login" class="sr-only">Ancien mot de passe</label>
+        <input type="password" id="password" name="password" ngModel class="form-control" placeholder="Ancien mot de passe" required>
+        <br>
+        <label for="password" class="sr-only">Nouveau mot de passe</label>
+        <input type="password" id="password" name="password" ngModel class="form-control" placeholder="Nouveau mot de passe" required>
+        <br>
+        <label for="password" class="sr-only">Confirmation de mot de passe</label>
+        <input type="password" id="password" name="password" ngModel class="form-control" placeholder="Confirmation nouveau mot de passe" required>
+        <br>
+        <br>
+        <div style="text-align: center;">
+        <button class="btn btn-lg btn-success btn-block" [disabled]="!loginForm.valid" type="submit" status="danger" >Se connecter</button>
+        </div>
+    </div>
+
+</form>
+        </nb-card-body>
+      </nb-card>
+    </div>
+</div>
