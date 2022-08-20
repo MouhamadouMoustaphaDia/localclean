@@ -35,6 +35,7 @@ Route::post('addUser', [UserController::class, 'addUser']);
 Route::post('addEvenement', [UserController::class, 'addEvenement']);
 
 Route::get('getEvenement', [UserController::class, 'getEvenement']);
+Route::get('getAllEvenementByUser/{user_id}', [UserController::class, 'getAllEvenementByUser']);
 Route::get('getProfil', [UserController::class, 'getProfil']);
 
 });

@@ -126,14 +126,27 @@ class userController extends Controller
             ], 401);
         }
 
+        $user = User::where([['email',$request->email],['deleted_at','=',null]])->first();
 
+        if($user)
+        {
             return response()->json([
                 'success' => true,
-                'token' => $jwt_token,
+                'user' => $user,
+                'token' => $jwt_token
             ]);
+        }else{
+            return response()->json(['success' => false]);
+        }
+            
 
     }
 
+
+    public function getAllEvenementByUser($user_id)
+   {
+       return  $evenement = Evenement::where([['user_id','=',$user_id],['deleted_at','=',null]])->get();
+   }
 
     public function logout(Request $request)
     {
