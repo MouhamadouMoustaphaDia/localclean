@@ -23,7 +23,6 @@ import {
 } from '@nebular/theme';
 import { LoginComponent } from './auth/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ChangerpasswordComponent } from './auth/changerpassword/changerpassword.component';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/guards/auth.guard';
 import { JwtInterceptor, JwtModule } from '@auth0/angular-jwt';
@@ -35,7 +34,7 @@ export function tokenGetter (){
 
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, ChangerpasswordComponent, InscriptionComponent],
+  declarations: [AppComponent, LoginComponent, InscriptionComponent],
   imports: [
     BrowserModule,
 

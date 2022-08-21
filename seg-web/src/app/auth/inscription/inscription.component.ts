@@ -2,6 +2,8 @@ import {ChangeDetectorRef, Component, Inject, OnInit} from '@angular/core';
 import {getDeepFromObject, NB_AUTH_OPTIONS, NbAuthResult, NbAuthService, NbAuthSocialLink} from "@nebular/auth";
 import {NgForm} from "@angular/forms";
 import {Router} from "@angular/router";
+import {AuthService} from "../auth.service";
+import {UserRegistrer} from "../../modele/utilisateurs.model";
 
 @Component({
   selector: 'ngx-inscription',
@@ -10,53 +12,47 @@ import {Router} from "@angular/router";
 })
 export class InscriptionComponent implements OnInit {
 
-  redirectDelay: number = 0;
-  showMessages: any = {};
-  strategy: string = '';
 
-  submitted = false;
-  errors: string[] = [];
-  messages: string[] = [];
-  user: any = {};
-  socialLinks: NbAuthSocialLink[] = [];
+  user: UserRegistrer = {
+    email: '',
+    password: '',
+    name: ''
+  };
 
-  constructor(protected service: NbAuthService,
+  constructor(protected service: AuthService,
               @Inject(NB_AUTH_OPTIONS) protected options = {},
-              protected cd: ChangeDetectorRef,
               protected router: Router) {
 
-    this.redirectDelay = this.getConfigValue('forms.register.redirectDelay');
-    this.showMessages = this.getConfigValue('forms.register.showMessages');
-    this.strategy = this.getConfigValue('forms.register.strategy');
-    this.socialLinks = this.getConfigValue('forms.login.socialLinks');
+
   }
 
   register(): void {
-    this.errors = this.messages = [];
-    this.submitted = true;
+    console.log(this.user)
 
-    this.service.register(this.strategy, this.user).subscribe((result: NbAuthResult) => {
-      this.submitted = false;
-      if (result.isSuccess()) {
-        this.messages = result.getMessages();
-      } else {
-        this.errors = result.getErrors();
-      }
+    this.service.register(this.user).subscribe(resp=> {
+     console.log(resp)
+      this.saveToken(resp['token'],resp['user'].name,resp['user'].profil_id,resp['user'].id)
+      console.log(resp);
+      this.router.navigate(['pages/iot-dashboard']);
+    }, (errors) => {
+      console.log(errors)
+    })
 
-      const redirect = result.getRedirect();
-      if (redirect) {
-        setTimeout(() => {
-          return this.router.navigateByUrl(redirect);
-        }, this.redirectDelay);
-      }
-      this.cd.detectChanges();
-    });
   }
 
-  getConfigValue(key: string): any {
-    return getDeepFromObject(this.options, key, null);
+  saveToken(jwt: string,
+            nom: string,
+            profilId: number,
+            iduser: number
+  ) {
+    localStorage.setItem('token', jwt);
+    localStorage.setItem('name', nom);
+    localStorage.setItem('id', String(iduser));
+    localStorage.setItem('profil', String(profilId));
   }
+
+
 
   ngOnInit(): void {
   }
-  }
+}

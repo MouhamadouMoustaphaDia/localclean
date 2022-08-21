@@ -2,7 +2,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
 import { PagesComponent } from './pages.component';
-import {ListcontactComponent} from "./contact/listcontact/listcontact.component";
 import {EvenementComponent} from "./evenement/evenement.component";
 import {SignalezoneComponent} from "./signalezone/signalezone.component";
 import {ModererEvenementComponent} from "./moderer-evenement/moderer-evenement.component";
@@ -28,23 +27,8 @@ const routes: Routes = [{
       path: 'notification',
       component: NotificationComponent,
     },
-    {
-      path: 'utilisateur',
-      loadChildren: () => import('./utilisateur/utlisateur.module')
-        .then(m => m.UtilisateurModule),
-    },
-    {
-      path: 'client',
-      loadChildren: () => import('./contact/contact.module')
-        .then(m => m.ContactModule),
-    },
-    {
-      path: 'compte',
-      loadChildren: () => import('./parametrecompte/parametrecompte.module')
-        .then(m => m.ParametrcompteModule),
-    },
-    { path: '', redirectTo: 'utilisateur', pathMatch: 'full' },
-    { path: '**', redirectTo: 'utilisateur' },
+    { path: '', redirectTo: 'evenement', pathMatch: 'evenement' },
+    { path: '**', redirectTo: 'evenement' },
   ],
 }];
 

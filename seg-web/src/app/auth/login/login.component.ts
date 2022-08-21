@@ -78,12 +78,12 @@ export class LoginComponent implements OnInit {
   }
 
   saveToken(jwt: string,
-            nom: string,
+            name: string,
             profilId: number,
             iduser: number
             ) {
     localStorage.setItem('token', jwt);
-    localStorage.setItem('name', nom);
+    localStorage.setItem('name', name);
     localStorage.setItem('id', String(iduser));
     localStorage.setItem('profil', String(profilId));
   }

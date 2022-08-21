@@ -49,5 +49,11 @@ export class UserModel {
   password: string;
 }
 
+export class UserRegistrer {
+  email: string;
+  password: string;
+  name: string;
+}
+
 
 

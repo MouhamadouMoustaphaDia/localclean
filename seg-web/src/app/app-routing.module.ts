@@ -4,8 +4,6 @@ import {
   NbAuthComponent,
 } from '@nebular/auth';
 import { LoginComponent } from './auth/login/login.component';
-import { ChangerpasswordComponent } from './auth/changerpassword/changerpassword.component';
-import { AuthGuard } from './auth/guards/auth.guard';
 import {InscriptionComponent} from "./auth/inscription/inscription.component";
 
 export const routes: Routes = [
@@ -27,10 +25,7 @@ export const routes: Routes = [
         path: 'inscription',
         component: InscriptionComponent,
       },
-      {
-        path: 'changemdp',
-        component: ChangerpasswordComponent,
-      },
+
       { path: '', redirectTo: 'login', pathMatch: 'full' },
       { path: '**', redirectTo: 'login' },
     ],
