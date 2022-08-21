@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import {HttpClient} from '@angular/common/http';
-import { Authentification, Changerpassword } from '../modele/utilisateurs.model';
 import { environment } from '../../environments/environment';
+import {UserModel} from "../modele/utilisateurs.model";
 
 
 @Injectable()
@@ -11,20 +11,22 @@ export class AuthService {
   isLoggedIn = false;
   role: number;
 
-  private url = environment.serverURL;
+  private url = "http://seg.alwaysdata.net";
 
   // store the URL so we can redirect after logging in
   redirectUrl: string;  constructor(private myRoute: Router , private http: HttpClient, public router: Router) { }
 
-  login(value: Authentification) {
-    return this.http.post(this.url + 'utilisateurs/auth',value);
+  login(value: UserModel) {
+    return this.http.post(this.url + '/api/login?email='+value.email+'&password='+value.password,{ observe : 'response'});
     }
+
+
 
     changeMdp(value : Changerpassword,id){
       return this.http.put(this.url+'utilisateurs/changepassword/'+id,value)
     }
-    
-  
+
+
     logout(): void {
       localStorage.removeItem('token');
       localStorage.removeItem('nom');
@@ -51,13 +53,13 @@ export class AuthService {
     localStorage.setItem('login', login);
     localStorage.setItem('etat', String(etat));
     localStorage.setItem('statut', String(statut));
-  
+
 
 
     this.isLoggedIn = true;
   }
-  
-   
+
+
   isAdmin() {
     return this.role === 1;
 

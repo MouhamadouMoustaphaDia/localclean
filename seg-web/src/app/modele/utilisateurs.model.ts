@@ -11,14 +11,7 @@ export interface UtilisateurModelServer {
   Telephone: String;
 }
 
-export class UserModel {
-  id: Number;
-  Nom: String;
-  Prenom : String;
-  Email: String;
-  IdRole: String;
-  Telephone: String;
-}
+
 
 
 export interface AddUser {
@@ -51,14 +44,10 @@ export interface serverResponse  {
 };
 
 
-export class Authentification {
-  login: string;
+export class UserModel {
+  email: string;
   password: string;
 }
 
 
-export class Changerpassword {
-  Amp: string;
-  Nmp: string;
-  Cnmp: string;
-}
+
