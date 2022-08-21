@@ -16,7 +16,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   private destroy$: Subject<void> = new Subject<void>();
   userPictureOnly: boolean = false;
-  user: any;
+  user='limamou';
 
   themes = [
     {
@@ -50,12 +50,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    console.log(localStorage.getItem('name'))
-    if(localStorage.getItem('name')==null){
-      this.user.name= localStorage.getItem('name')
-    }else{
-      this.user.name=''
-    }
+
+    this.user= localStorage.getItem('name')
+    this.user= localStorage.getItem('name')
    // this.user.name=localStorage.getItem('name')
     this.currentTheme = this.themeService.currentTheme;
 

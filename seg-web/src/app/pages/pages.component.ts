@@ -15,47 +15,54 @@ import { MENU_ITEMS } from './pages-menu';
 })
 export class PagesComponent implements OnInit{
   MENU_ITEMS: NbMenuItem[]=[];
-  hiEditeur : boolean;
-  hiResponsable : boolean;
+  adherant : boolean;
+  admin : boolean;
 
   ngOnInit(): void {
-  console.log(localStorage.getItem("idRole")) ;
-    if (parseInt(localStorage.getItem("idRole"))==2) {
-        this.hiEditeur =true;
+    this.adherant =false
+    this.admin =false
+  console.log(localStorage.getItem("profil")) ;
+    if (localStorage.getItem("profil")==2) {
+        this.adherant =true;
+
+    }
+    if (localStorage.getItem("profil")==1) {
+        this.admin =true;
     }
 
-    console.log(localStorage.getItem("idRole")) ;
-    if (parseInt(localStorage.getItem("idRole"))==3) {
-        this.hiResponsable =true;
-    }
-
+    console.log(this.admin);
+    console.log(this.adherant)
+    console.log(localStorage.getItem("profil")) ;
     this.MENU_ITEMS=[ {
       title: 'Accueil',
       icon: 'home-outline',
       link: '/pages/iot-dashboard',
       home: true,
-      hidden : this.hiEditeur
     },
     {
       title: 'Fonctionnalités',
       group: true,
     },
       {
-        title: 'Evenement',
+
+        title: 'Mes Evenement',
         icon: 'calendar-outline',
         link: '/pages/evenement'
       },
       {
+        hidden: this.adherant ? false : true,
         title: 'Signalez une zone',
         icon: 'bulb-outline',
         link: '/pages/zone'
       },
       {
+        hidden: this.admin ? false : true,
         title: 'Modérer un événement',
         icon: 'brush-outline',
         link: '/pages/moderer'
       },
       {
+        hidden: this.admin ? false : true,
         title: 'Notifications',
         icon: 'bell-outline',
         link: '/pages/notification'

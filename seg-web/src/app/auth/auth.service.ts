@@ -29,17 +29,10 @@ export class AuthService {
 
     logout(): void {
       localStorage.removeItem('token');
-      localStorage.removeItem('nom');
-      localStorage.removeItem('prenom');
-      localStorage.removeItem('email');
-      localStorage.removeItem('telephone');
-      localStorage.removeItem('login');
+      localStorage.removeItem('name');
+      localStorage.removeItem('profil');
       localStorage.removeItem('id');
-      localStorage.removeItem('etat');
-      localStorage.removeItem('statut');
-      localStorage.removeItem('idRole');
-      this.isLoggedIn = false;
-      this.router.navigate(['']);
+      location.reload();
     }
     saveToken(token: string, id :number,idRole: number,
             nom: string, prenom: string,email: string, telephone: string,login: string, etat: number,statut: number) {
