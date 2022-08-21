@@ -10,11 +10,16 @@
   </tr>
   </thead>
   <tbody style='background-color:white' >
-  <tr>
-    <td>patin</td>
-    <td >paris</td>
-    <td >jj</td>
-    <td>31/03</td>
+  <tr *ngFor="let ev of  evenement" >
+    <td>{{ev?.description}}</td>
+    <td >{{ev?.lieu}}</td>
+    <td >{{ev?.image}}</td>
+    <td>{{ev?.created_at}}</td>
+<!--  <tr>-->
+<!--    <td>patin</td>-->
+<!--    <td >paris</td>-->
+<!--    <td >jj</td>-->
+<!--    <td>31/03</td>-->
     <td>
       <button   nbButton status="success" nbPopover="Voir la facture" nbPopoverTrigger="hint" nbPopoverPlacement="top"><i class="fas fa-file-invoice" aria-hidden="true"></i>  </button>
       <button  nbButton status="warning" nbPopover="Voir la facture" nbPopoverTrigger="hint" nbPopoverPlacement="top" ><i class="fas fa-file-invoice" aria-hidden="true"></i>  </button>

@@ -25,7 +25,7 @@ export class AuthService {
   }
 
   getEvenement(){
-
+    return this.http.get(this.url + '/api/getEvenement?token='+localStorage.getItem("token"))
   }
 
 
