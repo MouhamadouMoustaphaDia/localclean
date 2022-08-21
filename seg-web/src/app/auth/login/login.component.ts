@@ -17,6 +17,7 @@ import {UserModel} from '../../modele/utilisateurs.model';
 import {AuthService} from '../auth.service';
 import {getDeepFromObject, NB_AUTH_OPTIONS, NbAuthResult, NbAuthService, NbAuthSocialLink} from "@nebular/auth";
 import {UtilisateursService} from "../../services/utilisateurs.service";
+import {NbGlobalPhysicalPosition, NbToastrService} from "@nebular/theme";
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
@@ -53,8 +54,8 @@ export class LoginComponent implements OnInit {
   }
 
   rememberMe = false;
-
-  constructor(protected service: AuthService, protected router: Router) {
+  positions = NbGlobalPhysicalPosition;
+  constructor(protected service: AuthService, protected router: Router,private toastrService: NbToastrService) {
 
   }
 
@@ -65,11 +66,26 @@ export class LoginComponent implements OnInit {
   login() {
     console.log(this.user);
     this.service.login(this.user).subscribe(resp => {
-        console.log(resp);
+        this.saveToken(resp['token'],resp['user'].name,resp['user'].profil_id,resp['user'].id)
+      console.log(resp);
+      this.router.navigate(['pages/iot-dashboard']);
       }, (err) => {
         console.log(err);
+        this.toastrService.show('login ou mot de passe incorect','Connexion',{ position:this.positions.TOP_RIGHT,status:'danger'})
+
       }
     );
+  }
+
+  saveToken(jwt: string,
+            nom: string,
+            profilId: number,
+            iduser: number
+            ) {
+    localStorage.setItem('token', jwt);
+    localStorage.setItem('nom', nom);
+    localStorage.setItem('id', String(iduser));
+    localStorage.setItem('profil', String(profilId));
   }
 
 }
